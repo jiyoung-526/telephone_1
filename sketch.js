@@ -19,6 +19,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  fill(0);
 }
 
 function keyPressed() {

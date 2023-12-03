@@ -1,11 +1,13 @@
 let inputString = ""; 
 let soundA, soundB, soundC, soundD, soundBGM;
 let soundsLoaded = 0;
+let allSoundsLoaded = false; // 모든 사운드 로드 확인용 변수
 
 function soundLoaded() {
   soundsLoaded++;
   if (soundsLoaded === 5) {
     console.log("모든 사운드 로딩 완료");
+    allSoundsLoaded = true; // 모든 사운드가 로드되었음을 표시
   }
 }
 
@@ -19,7 +21,15 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  fill(0);
+  background(0);
+}
+
+function draw() {
+  if (allSoundsLoaded) {
+    fill(120); // 회색 글씨
+    textSize(20);
+    text("완료", 10, 30); // 화면 좌측 상단에 "완료" 표시
+  }
 }
 
 function keyPressed() {
